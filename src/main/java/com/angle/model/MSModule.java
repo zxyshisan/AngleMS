@@ -7,29 +7,16 @@ import java.util.Date;
 /**
  * Created by Administrator on 2016/8/18 0018.
  */
-@Entity
-@Table(name = "tbl_ms_module")
 public class MSModule implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MODULE_ID")
     private long moduleId;
-    @Column(nullable = false,name="MODULE_NAME")
     private String moduleName;
-    @Column(name="MODULE_URL")
     private String moduleUrl;
-    @Column(nullable = false,name="PARENT_ID")
     private long parentId;
-    @Column(nullable = false,name="LEVEL")
     private int level;
-    @Column(nullable = false,name="IF_LEAF")
     private int ifLeaf;
-    @Column(nullable = false,name="STATUS")
     private int status;
-    @Column(nullable = false,name="SORT_ORDER")
     private int sortOrder;
-    @Column(nullable = false,name="CREATE_TIME")
     private Date createTime;
 
     public long getModuleId() {
