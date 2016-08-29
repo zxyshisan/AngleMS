@@ -3,6 +3,7 @@ package com.angle.service.impl;
 import com.angle.mapper.IMsModuleMapper;
 import com.angle.model.MSModule;
 import com.angle.service.IMsModuleService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,14 @@ public class MsModuleServiceImpl implements IMsModuleService {
     private IMsModuleMapper IMsModuleMapper;
 
     @Override
-    public List<MSModule> getList() {
+    public List<MSModule> getList(Integer pageIndex,Integer pageSize) {
+        if(pageIndex==null){
+            pageIndex=1;
+        }
+        if(pageSize==null){
+            pageSize=10;
+        }
+        PageHelper.startPage(pageIndex,pageSize);
         return IMsModuleMapper.getList();
     }
 }
